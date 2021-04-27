@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Modificar Usuario id = {{id}}</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label for="">username</label>
+                    <input [(ngModel)]="usuario.username" name="username" type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">password</label>
+                    <input [(ngModel)]="usuario.password" name="password"type="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">email</label>
+                    <input [(ngModel)]="usuario.email" name="email"type="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">teléfono</label>
+                    <input [(ngModel)]="usuario.telefono" name="telefono"type="text" class="form-control">
+                </div>
+                <button (click)="Actualizar(usuario)" class="btn btn-danger">Modificar</button>
+            </form>
+        </div>
+    </div>
+</div>
