@@ -10,8 +10,10 @@ import { UsuarioService } from '../../service/usuario.service'
 })
 export class ListarUsuarioComponent implements OnInit {
 
-  usuarios: Usuario[] | undefined;
-  constructor(private service:UsuarioService, private router:Router) { }
+  usuarios: Usuario[];
+  constructor(private service:UsuarioService, private router:Router) { 
+    this.usuarios= [];
+  }
 
   ngOnInit(): void {
     this.service.getUsuarios()
@@ -22,5 +24,13 @@ export class ListarUsuarioComponent implements OnInit {
   Editar(usuario:Usuario):void{
     localStorage.setItem("id",usuario.id.toString());
     this.router.navigate(["editarUsuario"]);
+  }
+  Delete(usuario: Usuario){
+    this.service.deleteUsuario(usuario).subscribe(
+      data=>{
+        this.usuarios = this.usuarios.filter(u=>u!==usuario);
+        alert("Usuario eliminado...")
+      }
+    )
   }
 }
